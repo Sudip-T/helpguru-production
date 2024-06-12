@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Vendors Map</title>
+    <!-- Include Leaflet CSS and JS from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body style="overflow: hidden;">
+
+    <div id="map" style="height: 100vh;"></div>
+
+    <script>
+        // Initialize the map
+        var radius = JSON.parse('{{ radius|default:1000 }}');
+        var userLatitude = JSON.parse('{{ user_latitude|default:27.693298 }}');
+        var userLongitude = JSON.parse('{{ user_longitude|default:85.281653 }}');
+        // var map = L.map('map').setView([27.693298, 85.281653], 13);
+        var map = L.map('map').setView([userLatitude, userLongitude], 13);
+
+        // Add a tile layer (you can use your preferred tile layer)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Display vendors on the map
+        var vendors = JSON.parse('{{ vendors|escapejs }}');
+
+        for (var i = 0; i < vendors.length; i++) {
+            var vendor = vendors[i];
+            L.marker([vendor.latitude, vendor.longitude]).addTo(map)
+                .bindPopup('<b>' + vendor.company_name + '</b><br>Latitude: ' + vendor.latitude + '<br>Longitude: ' + vendor.longitude);
+        }
+
+        // Add a circle around the user's location
+        var userLocation = [userLatitude, userLongitude];
+        var circle = L.circle(userLocation, {
+            color: 'purple',
+            fillColor: 'purple',
+            fillOpacity: 0.2,
+            weight: 2,
+            radius: radius  // Radius in meters
+        }).addTo(map);
+
+        // Set the zoom level, e.g., 15
+        map.setZoom(15);
+    </script>
+
+</body>
+
+</html>

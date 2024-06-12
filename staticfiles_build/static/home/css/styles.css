@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top Navbar Styles */
+.navbar {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero Section Styles */
+.hero {
+  background-color: #f2f2f2;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: 20px;
+}
+
+/* About Us Section Styles */
+.about {
+  padding: 50px 0;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+}
+
+/* Services Section Styles */
+.services {
+  background-color: #f2f2f2;
+  padding: 50px 0;
+}
+
+.services h2 {
+  margin-bottom: 20px;
+}
+
+.services ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.services ul li {
+  margin-bottom: 10px;
+}
+
+/* Contact Us Section Styles */
+.contact {
+  padding: 50px 0;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact button:hover {
+  background-color: #45a049;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
